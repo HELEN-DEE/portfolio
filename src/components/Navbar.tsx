@@ -26,11 +26,11 @@ return (
     <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
             isScrolled
-            ? "bg-[#0D0C1A]/95 backdrop-blur-md border-b border-white/10 shadow-lg"
-            : "bg-transparent"
+            ? "bg-[#0D0C1A]/40 backdrop-blur-xl border-b border-white/10 shadow-lg"
+            : "bg-[#0D0C1A]/20 backdrop-blur-lg border-b border-white/5"
         }`}
         >
-        <div className="container mx-auto px-6 lg:px-12">
+        <div className=" container mx-auto px-6 lg:px-2">
             <div className="flex items-center justify-between py-4">
             {/* Logo */}
             <div className="relative">
