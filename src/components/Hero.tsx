@@ -5,14 +5,14 @@ import imgHelen from "../../public/assets/cooperate-img-1.png"
 
 const Hero = () => {
 return (
-    <section className="min-h-screen bg-gradient-to-br from-[#3B0B47] via-[#1B1833] to-[#0D0C1A] text-slate-100 flex items-center relative overflow-hidden pt-20 lg:pt-24">
+    <section className="min-h-screen bg-gradient-to-br from-[#3B0B47] via-[#1B1833] to-[#0D0C1A] text-slate-100 flex items-center relative overflow-hidden pt-20 lg:pt-24 pb-10 ">
       {/* Subtle glowing background shapes */}
         <div className="absolute inset-0 opacity-15">
             <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-[#6A1B9A] to-[#4A148C] rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-[#283593] to-[#1A237E] rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-300"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-[#AD1457] to-[#880E4F] rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-700"></div>
         </div>
-        <div className="container mx-auto px-2 lg:px-2  relative z-10">
+        <div className="container mx-auto px-6 lg:px-2  relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Text Content */}
             <div className="space-y-8 lg:pr-8">

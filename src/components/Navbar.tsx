@@ -4,7 +4,7 @@ import { FiMenu, FiX, FiArrowRight } from "react-icons/fi";
 
 const navLinks = [
     { label: "Home", path: "/home" },
-    { label: "About", path: "/about" },
+    { label: "About", path: "/About" },
     { label: "Projects", path: "/projects" },
     { label: "Contact", path: "/contact" },
 ];
