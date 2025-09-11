@@ -1,8 +1,3 @@
-
-
-
-
-
 import React from 'react'
 import { Code2, Palette, Coffee, BookOpen, Target, Users, ArrowUpRight, Play, Twitter, FileText } from 'lucide-react'
 
