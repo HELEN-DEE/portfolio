@@ -9,95 +9,113 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
+import Image from "next/image";
+import project1 from "../../public/assets/bagstore-project.png"
+import project3 from "../../public/assets/volt-monitor.png"
+
+
 const Projects = () => {
     const [activeFilter, setActiveFilter] = useState("all");
 
     // Example projects - all web projects
     const projects = [
         {
-        id: 1,
-        title: "E-Commerce Dashboard",
-        description:
-            "Admin dashboard with real-time analytics, inventory tracking, and order management.",
-        image:
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-        technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-        category: "web",
-        featured: true,
-        liveUrl: "#",
-        githubUrl: "#",
-        status: "Completed",
+            id: 1,
+            title: "E-Commerce Website",
+            description:
+                "Admin dashboard with real-time analytics, inventory tracking, and order management.",
+            image: project1,
+            technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+            category: "web",
+            featured: true,
+            liveUrl: "https://bag-ecommerce-next-v9tf.vercel.app/",
+            githubUrl: "https://github.com/HELEN-DEE/bag-ecommerce-app.git",
+            status: "Completed",
         },
+        // {
+        //     id: 2,
+        //     title: "Task Management App",
+        //     description:
+        //         "Modern task manager with drag-and-drop, collaboration, and project tracking.",
+        //     image:
+        //         "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
+        //     technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
+        //     category: "web",
+        //     featured: true,
+        //     liveUrl: "#",
+        //     githubUrl: "#",
+        //     status: "Completed",
+        // },
         {
-        id: 2,
-        title: "Task Management App",
-        description:
-            "Modern task manager with drag-and-drop, collaboration, and project tracking.",
-        image:
-            "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-        technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
-        category: "web",
-        featured: true,
-        liveUrl: "#",
-        githubUrl: "#",
-        status: "Completed",
+            id: 3,
+            title: "Voltage Monitor",
+            description:
+                "Modern task manager with drag-and-drop, collaboration, and project tracking.",
+            image:
+                project3,
+            technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
+            category: "web",
+            featured: true,
+            liveUrl: "https://voltage-monitor.vercel.app/",
+            githubUrl: "https://github.com/HELEN-DEE/Voltage-monitor.git",
+            status: "Completed",
         },
-        {
-        id: 3,
-        title: "Travel Booking Platform",
-        description:
-            "Responsive travel booking website with search filters and booking system.",
-        image:
-            "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=600&fit=crop",
-        technologies: ["React", "Next.js", "CSS3", "REST API"],
-        category: "web",
-        featured: false,
-        liveUrl: "#",
-        githubUrl: "#",
-        status: "Completed",
-        },
-        {
-        id: 4,
-        title: "Fitness Tracking Dashboard",
-        description:
-            "Interactive dashboard for tracking fitness progress and workout routines.",
-        image:
-            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
-        technologies: ["JavaScript", "Chart.js", "HTML5", "CSS3"],
-        category: "web",
-        featured: false,
-        liveUrl: "#",
-        githubUrl: "#",
-        status: "Completed",
-        },
-        {
-        id: 5,
-        title: "Recipe Sharing Platform",
-        description:
-            "Community-driven platform for sharing and discovering new recipes.",
-        image:
-            "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop",
-        technologies: ["React", "Firebase", "Material UI", "Redux"],
-        category: "web",
-        featured: false,
-        liveUrl: "#",
-        githubUrl: "#",
-        status: "Completed",
-        },
-        {
-        id: 6,
-        title: "Real Estate Listing",
-        description:
-            "Modern real estate platform with property search and filtering capabilities.",
-        image:
-            "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
-        technologies: ["React", "Next.js", "Tailwind CSS", "Mapbox"],
-        category: "web",
-        featured: false,
-        liveUrl: "#",
-        githubUrl: "#",
-        status: "Completed",
-        },
+        // {
+        //     id: 3,
+        //     title: "Travel Booking Platform",
+        //     description:
+        //         "Responsive travel booking website with search filters and booking system.",
+        //     image:
+        //         "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=600&fit=crop",
+        //     technologies: ["React", "Next.js", "CSS3", "REST API"],
+        //     category: "web",
+        //     featured: false,
+        //     liveUrl: "#",
+        //     githubUrl: "#",
+        //     status: "Completed",
+        // },
+        // {
+        //     id: 4,
+        //     title: "Fitness Tracking Dashboard",
+        //     description:
+        //         "Interactive dashboard for tracking fitness progress and workout routines.",
+        //     image:
+        //         "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
+        //     technologies: ["JavaScript", "Chart.js", "HTML5", "CSS3"],
+        //     category: "web",
+        //     featured: false,
+        //     liveUrl: "#",
+        //     githubUrl: "#",
+        //     status: "Completed",
+        // },
+        // {
+        //     id: 5,
+        //     title: "Recipe Sharing Platform",
+        //     description:
+        //         "Community-driven platform for sharing and discovering new recipes.",
+        //     image:
+        //         "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop",
+        //     technologies: ["React", "Firebase", "Material UI", "Redux"],
+        //     category: "web",
+        //     featured: false,
+        //     liveUrl: "#",
+        //     githubUrl: "#",
+        //     status: "Completed",
+        // },
+        // {
+        //     id: 6,
+        //     title: "Real Estate Listing",
+        //     description:
+        //         "Modern real estate platform with property search and filtering capabilities.",
+        //     image:
+        //         "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+        //     technologies: ["React", "Next.js", "Tailwind CSS", "Mapbox"],
+        //     category: "web",
+        //     featured: false,
+        //     liveUrl: "#",
+        //     githubUrl: "#",
+        //     status: "Completed",
+        // },
     ];
 
     const categories = [
@@ -135,7 +153,7 @@ const Projects = () => {
                 Projects
             </h2>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                A collection of responsive websites and web applications I've crafted with modern technologies
+                A collection of responsive websites and web applications I&apos;ve crafted with modern technologies
             </p>
             </div>
 
@@ -151,7 +169,7 @@ const Projects = () => {
                     className="group bg-white/5 backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 hover:border-purple-400/30 transition-all duration-500 hover:scale-[1.02]"
                 >
                     <div className="relative w-full h-64 overflow-hidden">
-                    <img
+                    <Image
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -242,7 +260,7 @@ const Projects = () => {
                 className="group bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 hover:border-purple-400/30 transition-all duration-500 hover:scale-105"
                 >
                 <div className="relative w-full h-48 overflow-hidden">
-                    <img
+                    <Image
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
