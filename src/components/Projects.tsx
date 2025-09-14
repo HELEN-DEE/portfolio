@@ -1,12 +1,12 @@
 "use client";
 import { useState } from "react";
 import {
-  Github,
-  Eye,
-  Code2,
-  Sparkles,
-  Filter,
-  ArrowUpRight,
+    Github,
+    Eye,
+    Code2,
+    Sparkles,
+    Filter,
+    ArrowUpRight,
 } from "lucide-react";
 
 import Image from "next/image";
@@ -25,7 +25,7 @@ const Projects = () => {
             description:
                 "Admin dashboard with real-time analytics, inventory tracking, and order management.",
             image: project1,
-            technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+            technologies: [ "Next.js", "TypeScript", "Tailwind CSS", "Firebase" ],
             category: "web",
             featured: true,
             liveUrl: "https://bag-ecommerce-next-v9tf.vercel.app/",
