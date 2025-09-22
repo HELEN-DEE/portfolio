@@ -11,7 +11,7 @@ import {
 
 import Image from "next/image";
 import project1 from "../../public/assets/bagstore-project.png"
-import project3 from "../../public/assets/volt-monitor.png"
+import project3 from "../../public/assets/voltage-monitor-pro.png"
 
 
 const Projects = () => {
@@ -21,6 +21,20 @@ const Projects = () => {
     const projects = [
         {
             id: 1,
+            title: "Voltage Monitor pro",
+            description:
+                "Power management system that monitors and controls voltage levels in real-time.",
+            image:
+                project3,
+            technologies: ["Next.JS", "TypeScriot", "Tailwind CSS", "Firebase"],
+            category: "web",
+            featured: true,
+            liveUrl: "https://voltage-monitor-pro.vercel.app/",
+            githubUrl: "https://github.com/HELEN-DEE/Voltage-monitor-pro.git",
+            status: "in progress",
+        },
+        {
+            id: 2,
             title: "E-Commerce Website",
             description:
                 "Admin dashboard with real-time analytics, inventory tracking, and order management.",
@@ -30,7 +44,7 @@ const Projects = () => {
             featured: true,
             liveUrl: "https://bag-ecommerce-next-v9tf.vercel.app/",
             githubUrl: "https://github.com/HELEN-DEE/bag-ecommerce-app.git",
-            status: "Completed",
+            status: "in progress",
         },
         // {
         //     id: 2,
@@ -46,20 +60,8 @@ const Projects = () => {
         //     githubUrl: "#",
         //     status: "Completed",
         // },
-        {
-            id: 3,
-            title: "Voltage Monitor",
-            description:
-                "Modern task manager with drag-and-drop, collaboration, and project tracking.",
-            image:
-                project3,
-            technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
-            category: "web",
-            featured: true,
-            liveUrl: "https://voltage-monitor.vercel.app/",
-            githubUrl: "https://github.com/HELEN-DEE/Voltage-monitor.git",
-            status: "Completed",
-        },
+        
+        // socket.io, mongodb, node.js
         // {
         //     id: 3,
         //     title: "Travel Booking Platform",
