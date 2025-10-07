@@ -5,7 +5,7 @@ import imgHelen from "../../public/assets/cooperate-img-1.png"
 
 const Hero = () => {
 return (
-    <section className="min-h-screen bg-gradient-to-br from-[#3B0B47] via-[#1B1833] to-[#0D0C1A] text-slate-100 flex items-center relative overflow-hidden pt-20 lg:pt-24 pb-10 ">
+    <section id="home" className="min-h-screen bg-gradient-to-br from-[#3B0B47] via-[#1B1833] to-[#0D0C1A] text-slate-100 flex items-center relative overflow-hidden pt-20 lg:pt-24 pb-10 ">
       {/* Subtle glowing background shapes */}
         <div className="absolute inset-0 opacity-15">
             <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-[#6A1B9A] to-[#4A148C] rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>

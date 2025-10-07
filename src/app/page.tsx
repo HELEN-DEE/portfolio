@@ -7,10 +7,16 @@ import Projects from "@/components/Projects"
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="relative ">
       <Navbar/>
-      <Hero/>
+
+      {/* Hero section  */}
+      <Hero />
+
+      {/* About section  */}
       <About/>
+      
+      {/* Projects section */}
       <Projects/>
     </main>
   );
