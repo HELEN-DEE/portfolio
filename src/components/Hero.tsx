@@ -41,7 +41,7 @@ return (
                 </div>
                 <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/10">
                     <Globe className="w-4 h-4 text-teal-300" />
-                    <span className="text-sm font-medium">Full-Stack Ready</span>
+                    <span className="text-sm font-medium">Exploring Web3</span>
                 </div>
                 <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/10">
                     <Sparkles className="w-4 h-4 text-amber-300" />
@@ -64,7 +64,7 @@ return (
 
             
             {/* Right Image */}
-            <div className="lg:justify-self-end relative">
+            <div className="lg:justify-self-end relative lg:bottom-12">
                         <div className="relative w-80 h-96 lg:w-96 lg:h-[450px] mx-auto">
                             
                             <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-3xl backdrop-blur-sm border border-white/20 flex items-center justify-center">

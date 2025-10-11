@@ -44,7 +44,7 @@ const Projects = () => {
             featured: true,
             liveUrl: "https://bag-ecommerce-next-v9tf.vercel.app/",
             githubUrl: "https://github.com/HELEN-DEE/bag-ecommerce-app.git",
-            status: "in progress",
+            status: "Completed",
         },
         // {
         //     id: 2,
