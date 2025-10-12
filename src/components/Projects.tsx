@@ -10,8 +10,9 @@ import {
 } from "lucide-react";
 
 import Image from "next/image";
-import project1 from "../../public/assets/bagstore-project.png"
-import project3 from "../../public/assets/voltage-monitor-pro.png"
+import project1 from "../../public/assets/voltage-monitor-pro.png"
+import project2 from "../../public/assets/bagstore-project.png"
+import project3 from "../../public/assets/helen-portfolio.png"
 
 
 const Projects = () => {
@@ -25,20 +26,20 @@ const Projects = () => {
             description:
                 "Power management system that monitors and controls voltage levels in real-time.",
             image:
-                project3,
+                project1,
             technologies: ["Next.JS", "TypeScriot", "Tailwind CSS", "Firebase"],
             category: "web",
             featured: true,
             liveUrl: "https://voltage-monitor-pro.vercel.app/",
             githubUrl: "https://github.com/HELEN-DEE/Voltage-monitor-pro.git",
-            status: "in progress",
+            status: "In progress",
         },
         {
             id: 2,
             title: "E-Commerce Website",
             description:
-                "Admin dashboard with real-time analytics, inventory tracking, and order management.",
-            image: project1,
+                "Responsive e-commerce site with product listings, shopping cart, and secure checkout.",
+            image: project2,
             technologies: [ "Next.js", "TypeScript", "Tailwind CSS", "Firebase" ],
             category: "web",
             featured: true,
@@ -62,20 +63,20 @@ const Projects = () => {
         // },
         
         // socket.io, mongodb, node.js
-        // {
-        //     id: 3,
-        //     title: "Travel Booking Platform",
-        //     description:
-        //         "Responsive travel booking website with search filters and booking system.",
-        //     image:
-        //         "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=600&fit=crop",
-        //     technologies: ["React", "Next.js", "CSS3", "REST API"],
-        //     category: "web",
-        //     featured: false,
-        //     liveUrl: "#",
-        //     githubUrl: "#",
-        //     status: "Completed",
-        // },
+        {
+            id: 3,
+            title: "Portfolio Website",
+            description:
+                "Personal portfolio showcasing projects, skills, and experience.",
+            image:
+                project3,
+            technologies: ["React", "Next.js", "CSS3", "REST API"],
+            category: "web",
+            featured: false,
+            liveUrl: "https://helen-dee.pxxl.click/",
+            githubUrl: "https://github.com/HELEN-DEE/portfolio.git",
+            status: "In progress",
+        },
         // {
         //     id: 4,
         //     title: "Fitness Tracking Dashboard",
