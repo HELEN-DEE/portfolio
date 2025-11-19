@@ -97,7 +97,7 @@ const Navbar = () => {
             <h1 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white via-slate-200 to-purple-200 bg-clip-text text-transparent">
               HELEN.
             </h1>
-            <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-gradient-to-r from-[#7D2A9B] to-[#C2185B]"></div>
+            <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-[#C49BFF]"></div>
           </div>
 
           {/* Desktop Menu */}
@@ -119,7 +119,7 @@ const Navbar = () => {
                   >
                     {link.label}
                     <span 
-                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#7D2A9B] to-[#C2185B] transition-all duration-300 ${
+                      className={`absolute bottom-0 left-0 h-0.5 bg-[#C49BFF] transition-all duration-300 ${
                         isActive ? "w-full" : "w-0 group-hover:w-full"
                       }`}
                     ></span>
@@ -133,7 +133,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <button 
               onClick={(e) => handleSmoothScroll(e, "#contact")}
-              className="bg-gradient-to-r from-[#7D2A9B] to-[#C2185B] hover:from-[#6A1B9A] hover:to-[#AD1457] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-[#945ee4] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Let&apos;s Talk
             </button>
