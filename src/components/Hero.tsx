@@ -1,12 +1,18 @@
+"use client";
 import React from 'react'
 import Image from 'next/image'
 import { ArrowRight, Code2, Sparkles, Globe,  } from 'lucide-react'
 import imgHelen from "../../public/assets/Helen-site.png"
+import {motion} from 'motion/react'
 
 const Hero = () => {
 return (
     <section id="home" className="min-h-screen bg-gradient-to-br from-[#0F0F13] via-[#1A142D] to-[#0F0F13] text-slate-100 flex items-center relative overflow-hidden pt-20 lg:pt-24 pb-10 ">
       {/* Subtle glowing background shapes */}
+        <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-40 left-20 w-64 h-64 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full filter blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-40 right-20 w-80 h-80 bg-gradient-to-br from-pink-500 to-purple-700 rounded-full filter blur-3xl animate-pulse delay-700"></div>
+        </div>
         {/* <div className="absolute inset-0 opacity-15">
             <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-[#6A1B9A] to-[#4A148C] rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-[#283593] to-[#1A237E] rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-300"></div>
@@ -51,7 +57,7 @@ return (
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="group bg-gradient-to-r from-[#7D2A9B] to-[#C2185B] hover:from-[#6A1B9A] hover:to-[#AD1457] text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center space-x-2">
+                <button className="group bg-gradient-to-br from-[#ffd53d] to-[#ff9327] hover:to-[#AD1457] text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center space-x-2">
                     <span>View My Work</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
@@ -68,27 +74,74 @@ return (
             {/* <div className=''>
                 <Image src={imgHelen} alt="Image-Helen" className='w-[400px]'/>
             </div> */}
+            
+
             <div className="lg:justify-self-end relative lg:bottom-12">
-                        <div className="relative w-80 h-96 lg:w-96 lg:h-[450px] mx-auto">
-                            
-                            <div className="absolute inset-0 bg-[#8d57de]/20 rounded-3xl backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                                <div className="text-center space-y-4 w-90 h-90 rounded-full bg-gradient-to-tr bg-[#945ee4]">
-                                    <div className=" rounded-full mx-auto flex items-center justify-center text-4xl font-bold text-white">
-                                        
-                                    <Image src={imgHelen} alt="Image-Helen" className='w-[400px] px-1.5'/>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            {/* floating icons */}
-                            <div className="absolute -top-4 -right-4 w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-300">
-                                <Code2 className="w-8 h-8 text-white" />
-                            </div>
-                            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center transform -rotate-12 hover:rotate-0 transition-transform duration-300">
-                                <Sparkles className="w-6 h-6 text-white" />
-                            </div>
-                        </div>
-                    </div>
+    <div className="relative w-64 h-72 md:w-80 md:h-96 lg:w-[500px] lg:h-[550px] mx-auto">
+        {/* Circular border BEHIND the image */}
+        <div className="absolute inset-0 flex items-end justify-center">
+            <div className="w-[280px] h-[280px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] rounded-full border-[30px] md:border-[50px] lg:border-[80px] border-[#C49BFF] backdrop-blur-sm flex items-end justify-center 
+        shadow-[0_0_15px_5px_#C49BFF] lg:shadow-[0_0_10px_5px_#C49BFF]">
+                {/* This creates the "border behind" effect */}
+            </div>
+        </div>
+        
+        {/* Main Image - responsive sizing */}
+        <div className="absolute inset-0 flex items-end justify-center">
+            <div className="w-[240px] h-[320px] md:w-[300px] md:h-[420px] lg:w-[400px] lg:h-[550px] rounded-t-full overflow-hidden">
+                <Image 
+                    src={imgHelen} 
+                    alt="Image-Helen" 
+                    className='w-full h-full object-cover object-center scale-100'
+                    priority
+                />
+            </div>
+        </div>
+        
+        {/* Orbiting icons - responsive containers and sizes */}
+        <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px]"
+            animate={{ rotate: 360 }}
+            transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear"
+            }}
+        >
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-[#1A142D] rounded-full flex items-center justify-center shadow-lg border border-white/20">
+                <Code2 className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#C49BFF]" />
+            </div>
+        </motion.div>
+
+        <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[300px] md:h-[300px] lg:w-[460px] lg:h-[460px]"
+            animate={{ rotate: 360 }}
+            transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear"
+            }}
+        >
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-7 h-7 md:w-8 md:h-8 lg:w-12 lg:h-12 bg-[#1A142D] rounded-full flex items-center justify-center shadow-lg border border-white/20">
+                <Sparkles className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#C49BFF]" />
+            </div>
+        </motion.div>
+
+        <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[300px] md:h-[300px] lg:w-[460px] lg:h-[460px]"
+            animate={{ rotate: 360 }}
+            transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear"
+            }}
+        >
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-7 h-7 md:w-8 md:h-8 lg:w-12 lg:h-12 bg-[#1A142D] rounded-full flex items-center justify-center shadow-lg border border-white/20">
+                <Globe className="w-2.5 h-2.5 md:w-3 md:h-3 lg:w-5 lg:h-5 text-[#C49BFF]" />
+            </div>
+        </motion.div>
+    </div>
+</div>
             
 
 

@@ -133,7 +133,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <button 
               onClick={(e) => handleSmoothScroll(e, "#contact")}
-              className="bg-[#945ee4] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-br from-[#ffd53d] to-[#ff9327] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Let&apos;s Talk
             </button>

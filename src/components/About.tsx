@@ -42,7 +42,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="min-h-screen bg-gradient-to-br from-[#1C1B1F] via-[#2D1B3D] to-[#1A1A2E] text-slate-100 py-20 relative overflow-hidden">
+    <section id="about" className="min-h-screen bg-gradient-to-br from-[#0F0F13] via-[#1A142D] to-[#0F0F13] text-slate-100 py-20 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-40 left-20 w-64 h-64 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full filter blur-3xl animate-pulse"></div>

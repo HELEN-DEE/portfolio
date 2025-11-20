@@ -59,7 +59,7 @@ const ContactForm = () => {
   }
 
   return (
-    <section id="contact" className="min-h-screen bg-gradient-to-br from-[#3B0B47] via-[#1B1833] to-[#0D0C1A] text-slate-100 flex items-center relative overflow-hidden py-20 px-6">
+    <section id="contact" className="min-h-screen bg-gradient-to-br from-[#0F0F13] via-[#1A142D] to-[#0F0F13] text-slate-100 flex items-center relative overflow-hidden py-20 px-6">
       {/* Ambient background effects */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/4 left-20 w-96 h-96 bg-gradient-to-br from-[#6A1B9A] to-[#4A148C] rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
