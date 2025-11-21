@@ -213,7 +213,7 @@ const Projects = () => {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105"
+                        className="flex items-center space-x-2 bg-gradient-to-br from-[#ffd53d] to-[#ff9327] hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105"
                         >
                         <Eye className="w-4 h-4" />
                         <span>Live Demo</span>
@@ -242,7 +242,7 @@ const Projects = () => {
                 onClick={() => setActiveFilter(category.id)}
                 className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                     activeFilter === category.id
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                    ? "bg-gradient-to-br from-[#ffd53d] to-[#ff9327] text-white"
                     : "bg-white/10 text-slate-300 hover:bg-white/20 border border-white/20"
                 }`}
                 >
@@ -328,7 +328,7 @@ const Projects = () => {
                 Let&apos;s collaborate and bring your ideas to life with clean
                 code and beautiful design.
                 </p>
-                <button className="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 mx-auto">
+                <button className="group bg-gradient-to-br from-[#ffd53d] to-[#ff9327] hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 mx-auto">
                 <span>Start a Project</span>
                 <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
                 </button>

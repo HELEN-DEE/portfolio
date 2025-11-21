@@ -91,7 +91,7 @@ const About = () => {
               <div className="grid gap-6">
                 {values.map((value, index) => (
                   <div key={index} className="flex items-start space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#ffd53d] to-[#ff9327] rounded-lg flex items-center justify-center text-white">
                       {value.icon}
                     </div>
                     <div>
@@ -171,7 +171,7 @@ const About = () => {
               <p className="text-slate-300 mb-6 text-sm leading-relaxed">
                 Ready to bring your next project to life? I&apos;m always excited to tackle new challenges and create something amazing together.
               </p>
-              <button className="group bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+              <button className="group bg-gradient-to-br from-[#ffd53d] to-[#ff9327] hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
                 <span>Start a Project</span>
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
               </button>

@@ -177,7 +177,7 @@ const ContactForm = () => {
                 className={`group relative w-full ${
                   isSubmitted
                     ? 'bg-gradient-to-r from-green-600 to-emerald-600'
-                    : 'bg-gradient-to-r from-[#7D2A9B] to-[#C2185B] hover:from-[#6A1B9A] hover:to-[#AD1457]'
+                    : 'bg-gradient-to-br from-[#ffd53d] to-[#ff9327] hover:from-[#6A1B9A] hover:to-[#AD1457]'
                 } text-white px-8 py-5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl flex items-center justify-center space-x-3 overflow-hidden disabled:cursor-not-allowed`}
               >
                 {/* Animated background gradient on hover */}
