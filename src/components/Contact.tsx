@@ -89,7 +89,7 @@ const ContactForm = () => {
             <form onSubmit={handleSubmit} className="relative space-y-6">
               {/* Name Input */}
               <div className="relative group">
-                <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2 flex items-center space-x-2">
+                <label htmlFor="name" className="text-sm font-medium text-slate-300 mb-2 flex items-center space-x-2">
                   <User className="w-4 h-4 text-purple-300" />
                   <span>Your Name</span>
                 </label>
@@ -116,7 +116,7 @@ const ContactForm = () => {
 
               {/* Email Input */}
               <div className="relative group">
-                <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2 flex items-center space-x-2">
+                <label htmlFor="email" className="text-sm font-medium text-slate-300 mb-2 flex items-center space-x-2">
                   <Mail className="w-4 h-4 text-teal-300" />
                   <span>Email Address</span>
                 </label>
@@ -143,7 +143,7 @@ const ContactForm = () => {
 
               {/* Message Textarea */}
               <div className="relative group">
-                <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2 flex items-center space-x-2">
+                <label htmlFor="message" className="text-sm font-medium text-slate-300 mb-2 flex items-center space-x-2">
                   <MessageCircle className="w-4 h-4 text-amber-300" />
                   <span>Your Message</span>
                 </label>

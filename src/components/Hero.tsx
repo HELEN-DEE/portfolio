@@ -21,7 +21,7 @@ return (
         <div className="container mx-auto px-6 lg:px-2  relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Text Content */}
-            <div className="space-y-8 lg:pr-8">
+            <div className="space-y-8 lg:pr-8 order-2 lg:order-1">
                 <div className="space-y-2">
                 <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm border border-white/20">
                     <Sparkles className="w-4 h-4 text-amber-300" />
@@ -76,72 +76,72 @@ return (
             </div> */}
             
 
-            <div className="lg:justify-self-end relative lg:bottom-12">
-    <div className="relative w-64 h-72 md:w-80 md:h-96 lg:w-[500px] lg:h-[550px] mx-auto">
-        {/* Circular border BEHIND the image */}
-        <div className="absolute inset-0 flex items-end justify-center">
-            <div className="w-[280px] h-[280px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] rounded-full border-[30px] md:border-[50px] lg:border-[80px] border-[#C49BFF] backdrop-blur-sm flex items-end justify-center 
-        shadow-[0_0_15px_5px_#C49BFF] lg:shadow-[0_0_10px_5px_#C49BFF]">
-                {/* This creates the "border behind" effect */}
-            </div>
-        </div>
-        
-        {/* Main Image - responsive sizing */}
-        <div className="absolute inset-0 flex items-end justify-center">
-            <div className="w-[240px] h-[320px] md:w-[300px] md:h-[420px] lg:w-[400px] lg:h-[550px] rounded-t-full overflow-hidden">
-                <Image 
-                    src={imgHelen} 
-                    alt="Image-Helen" 
-                    className='w-full h-full object-cover object-center scale-100'
-                    priority
-                />
-            </div>
-        </div>
-        
-        {/* Orbiting icons - responsive containers and sizes */}
-        <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px]"
-            animate={{ rotate: 360 }}
-            transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear"
-            }}
-        >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-[#1A142D] rounded-full flex items-center justify-center shadow-lg border border-white/20">
-                <Code2 className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#C49BFF]" />
-            </div>
-        </motion.div>
+            <div className="lg:justify-self-end relative lg:bottom-12 order-1 lg:order-2">
+                <div className="relative w-64 h-72 md:w-80 md:h-96 lg:w-[500px] lg:h-[550px] mx-auto">
+                    {/* Circular border BEHIND the image */}
+                    <div className="absolute inset-0 flex items-end justify-center">
+                        <div className="w-[280px] h-[280px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] rounded-full border-[30px] md:border-[50px] lg:border-[80px] border-[#C49BFF] backdrop-blur-sm flex items-end justify-center 
+                    ">
+                            {/* This creates the "border behind" effect */}
+                        </div>
+                    </div>
+                    
+                    {/* Main Image - responsive sizing */}
+                    <div className="absolute inset-0 flex items-end justify-center">
+                        <div className="w-[240px] h-[320px] md:w-[300px] md:h-[420px] lg:w-[400px] lg:h-[550px] rounded-t-full overflow-hidden">
+                            <Image 
+                                src={imgHelen} 
+                                alt="Image-Helen" 
+                                className='w-full h-full object-cover object-center scale-100'
+                                priority
+                            />
+                        </div>
+                    </div>
+                    
+                    {/* Orbiting icons - responsive containers and sizes */}
+                    <motion.div
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px]"
+                        animate={{ rotate: 360 }}
+                        transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    >
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-[#1A142D] rounded-full flex items-center justify-center shadow-lg border border-white/20">
+                            <Code2 className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#C49BFF]" />
+                        </div>
+                    </motion.div>
 
-        <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[300px] md:h-[300px] lg:w-[460px] lg:h-[460px]"
-            animate={{ rotate: 360 }}
-            transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear"
-            }}
-        >
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-7 h-7 md:w-8 md:h-8 lg:w-12 lg:h-12 bg-[#1A142D] rounded-full flex items-center justify-center shadow-lg border border-white/20">
-                <Sparkles className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#C49BFF]" />
-            </div>
-        </motion.div>
+                    <motion.div
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[300px] md:h-[300px] lg:w-[460px] lg:h-[460px]"
+                        animate={{ rotate: 360 }}
+                        transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    >
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-7 h-7 md:w-8 md:h-8 lg:w-12 lg:h-12 bg-[#1A142D] rounded-full flex items-center justify-center shadow-lg border border-white/20">
+                            <Sparkles className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#C49BFF]" />
+                        </div>
+                    </motion.div>
 
-        <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[300px] md:h-[300px] lg:w-[460px] lg:h-[460px]"
-            animate={{ rotate: 360 }}
-            transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear"
-            }}
-        >
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-7 h-7 md:w-8 md:h-8 lg:w-12 lg:h-12 bg-[#1A142D] rounded-full flex items-center justify-center shadow-lg border border-white/20">
-                <Globe className="w-2.5 h-2.5 md:w-3 md:h-3 lg:w-5 lg:h-5 text-[#C49BFF]" />
+                    <motion.div
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[300px] md:h-[300px] lg:w-[460px] lg:h-[460px]"
+                        animate={{ rotate: 360 }}
+                        transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    >
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-7 h-7 md:w-8 md:h-8 lg:w-12 lg:h-12 bg-[#1A142D] rounded-full flex items-center justify-center shadow-lg border border-white/20">
+                            <Globe className="w-2.5 h-2.5 md:w-3 md:h-3 lg:w-5 lg:h-5 text-[#C49BFF]" />
+                        </div>
+                    </motion.div>
+                </div>
             </div>
-        </motion.div>
-    </div>
-</div>
             
 
 
