@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 import Image, { type StaticImageData } from "next/image";
-import project1 from "../../public/assets/voltage-monitor-pro.png";
+import project1 from "../../public/assets/VoltWatchGrid-website.png";
 import project2 from "../../public/assets/bagstore-project.png";
 import project3 from "../../public/assets/helen-portfolio.png";
 import project4 from "../../public/assets/crowdmint-header.png";

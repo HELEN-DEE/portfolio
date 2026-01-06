@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FiMenu, FiX, FiArrowRight } from "react-icons/fi";
+import { FiMenu, FiX, FiArrowRight, FiSun, FiMoon } from "react-icons/fi";
+import { useTheme } from '@/app/context/ThemeContext';
 
 interface NavLink {
   label: string;
@@ -18,6 +19,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>("home");
+  const { theme, toggleTheme } = useTheme();
 
   // Handle scroll effect and active section
   useEffect(() => {
@@ -46,14 +48,12 @@ const Navbar = () => {
       setActiveSection(current);
     };
 
-    // Set initial active section
     handleScroll();
-    
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll function with proper TypeScript typing
+  // Smooth scroll function
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, 
     path: string
@@ -65,16 +65,12 @@ const Navbar = () => {
       const targetElement = document.getElementById(targetId);
       
       if (targetElement) {
-        // Close mobile menu if open
         setIsOpen(false);
-        
-        // Smooth scroll to target
         targetElement.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
         
-        // Update URL without page reload (Next.js compatible)
         if (window.history.pushState) {
           window.history.pushState(null, "", path);
         }
@@ -86,110 +82,135 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#0D0C1A]/40 backdrop-blur-xl border-b border-white/10 shadow-lg"
-          : "bg-[#0D0C1A]/20 backdrop-blur-lg border-b border-white/5"
+          ? theme === 'dark'
+            ? "bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50"
+            : "bg-white/80 backdrop-blur-xl border-b border-slate-200/50"
+          : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 lg:px-2">
+      <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between py-4">
-          {/* Logo */}
-          <div className="relative">
-            <h1 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white via-slate-200 to-purple-200 bg-clip-text text-transparent">
-              HELEN.
-            </h1>
-            <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-[#C49BFF]"></div>
-          </div>
+          {/* Logo - Simplified and elegant */}
+          <a 
+            href="#home"
+            onClick={(e) => handleSmoothScroll(e, "#home")}
+            className="group relative"
+          >
+            <span className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+              Helen
+            </span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 dark:bg-purple-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
 
-          {/* Desktop Menu */}
-          <ul className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link, index) => {
-              const sectionId = link.path.substring(1);
-              const isActive = activeSection === sectionId;
-              
-              return (
-                <li key={index} className="relative group">
-                  <a
-                    href={link.path}
-                    onClick={(e) => handleSmoothScroll(e, link.path)}
-                    className={`font-medium transition-all duration-300 py-2 px-1 relative ${
-                      isActive 
-                        ? "text-white" 
-                        : "text-slate-200 hover:text-white"
-                    }`}
-                  >
-                    {link.label}
-                    <span 
-                      className={`absolute bottom-0 left-0 h-0.5 bg-[#C49BFF] transition-all duration-300 ${
-                        isActive ? "w-full" : "w-0 group-hover:w-full"
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            <ul className="flex items-center gap-6">
+              {navLinks.map((link, index) => {
+                const sectionId = link.path.substring(1);
+                const isActive = activeSection === sectionId;
+                
+                return (
+                  <li key={index}>
+                    <a
+                      href={link.path}
+                      onClick={(e) => handleSmoothScroll(e, link.path)}
+                      className={`relative px-3 py-2 text-sm font-medium transition-colors ${
+                        isActive 
+                          ? "text-slate-900 dark:text-white" 
+                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       }`}
-                    ></span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+                    >
+                      {link.label}
+                      {isActive && (
+                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-purple-500"></span>
+                      )}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
 
-          {/* CTA Button - Desktop */}
-          <div className="hidden md:block">
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-colors"
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            >
+              {theme === 'light' ? (
+                <FiMoon className="w-5 h-5 text-slate-700" />
+              ) : (
+                <FiSun className="w-5 h-5 text-slate-300" />
+              )}
+            </button>
+
+            {/* CTA Button */}
             <button 
               onClick={(e) => handleSmoothScroll(e, "#contact")}
-              className="bg-gradient-to-br from-[#ffd53d] to-[#ff9327] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="px-5 py-2.5 bg-purple-600 dark:bg-purple-500 hover:bg-purple-700 dark:hover:bg-purple-600 text-white rounded-lg font-medium transition-all duration-200 hover:scale-105 active:scale-95"
             >
               Let&apos;s Talk
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 text-slate-100 hover:text-white hover:bg-white/20 transition-all duration-300"
-            aria-label="Toggle mobile menu"
-          >
-            {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? (
+                <FiMoon className="w-5 h-5 text-slate-700" />
+              ) : (
+                <FiSun className="w-5 h-5 text-slate-300" />
+              )}
+            </button>
+            
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
+              aria-label="Toggle mobile menu"
+            >
+              {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isOpen ? "max-h-96 opacity-100 pb-6" : "max-h-0 opacity-0"
-          }`}
-        >
-          <div className="bg-[#0D0C1A]/95 backdrop-blur-md rounded-2xl border border-white/10 p-6 space-y-4 shadow-2xl">
-            {navLinks.map((link, index) => {
-              const sectionId = link.path.substring(1);
-              const isActive = activeSection === sectionId;
-              
-              return (
-                <a
-                  key={index}
-                  href={link.path}
-                  onClick={(e) => handleSmoothScroll(e, link.path)}
-                  className={`flex items-center justify-between p-3 rounded-xl transition-all duration-300 group ${
-                    isActive
-                      ? "bg-white/10 text-white border-l-2 border-[#C2185B]"
-                      : "hover:bg-white/10 text-slate-200 hover:text-white"
-                  }`}
-                >
-                  <span>{link.label}</span>
-                  <FiArrowRight className={`w-4 h-4 transition-all duration-200 ${
-                    isActive 
-                      ? "text-[#C2185B] translate-x-1" 
-                      : "text-slate-400 group-hover:text-[#C2185B] group-hover:translate-x-1"
-                  }`} />
-                </a>
-              );
-            })}
-            <div className="pt-4 border-t border-white/10">
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-lg overflow-hidden">
+            <div className="p-4 space-y-1">
+              {navLinks.map((link, index) => {
+                const sectionId = link.path.substring(1);
+                const isActive = activeSection === sectionId;
+                
+                return (
+                  <a
+                    key={index}
+                    href={link.path}
+                    onClick={(e) => handleSmoothScroll(e, link.path)}
+                    className={`flex items-center justify-between p-3 rounded-lg transition-colors ${
+                      isActive
+                        ? "bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300"
+                        : "hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300"
+                    }`}
+                  >
+                    <span className="font-medium">{link.label}</span>
+                    <FiArrowRight className="w-4 h-4" />
+                  </a>
+                );
+              })}
+            </div>
+            <div className="p-4 border-t border-slate-200 dark:border-slate-800">
               <button 
                 onClick={(e) => handleSmoothScroll(e, "#contact")}
-                className="w-full bg-gradient-to-r from-[#7D2A9B] to-[#C2185B] hover:from-[#6A1B9A] hover:to-[#AD1457] text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full py-3 bg-purple-600 dark:bg-purple-500 hover:bg-purple-700 dark:hover:bg-purple-600 text-white rounded-lg font-medium transition-colors"
               >
-                Let&apos;s Talk
+                Get in Touch
               </button>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );
