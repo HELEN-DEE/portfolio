@@ -1,28 +1,15 @@
+// app/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display_SC } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
 import { ThemeProvider } from "./context/ThemeContext";
+import Navbar from "@/components/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const playfairSC = Playfair_Display_SC ({
-  variable: "--font-playfair-display-sc",
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
-})
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Helen- Frontend Developer",
-  description: "Helen's portfolio - Creative frontend developer",
+  title: "Helen - Web Developer Portfolio",
+  description: "Frontend Developer building digital experiences",
 };
 
 export default function RootLayout({
@@ -31,13 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfairSC.variable} antialiased`}
-      >
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
         <ThemeProvider>
           <Navbar />
-          <main>{children}</main>
+          {children}
         </ThemeProvider>
       </body>
     </html>
