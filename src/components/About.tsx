@@ -71,7 +71,7 @@ const About = () => {
   const headingClass = theme === 'dark' ? 'text-white' : 'text-slate-900';
 
   return (
-    <section id="about" className={`min-h-screen py-20 lg:py-28 transition-colors ${theme === 'dark' ? 'bg-slate-950 text-slate-100' : 'bg-white text-slate-900'}`}>
+    <section id="about" className={`min-h-screen py-6 lg:py-12 transition-colors ${theme === 'dark' ? 'bg-slate-950 text-slate-100' : 'bg-white text-slate-900'}`}>
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
         
         {/* Header */}
@@ -86,7 +86,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+        <div className="grid lg:grid-cols-12 gap-12 items-start mb-12">
           
           {/* Left Column */}
           <div className="lg:col-span-5 space-y-8">
@@ -117,14 +117,22 @@ const About = () => {
               </div>
             </div>
 
-            {/* CTA Card */}
-            <div className={`rounded-2xl p-6 border ${theme === 'dark' ? 'bg-purple-900/20 border-purple-800/50' : 'bg-purple-50 border-purple-200'}`}>
-              <h3 className={`text-lg font-semibold mb-2 ${headingClass}`}>Let&apos;s Work Together</h3>
-              <p className={`text-sm mb-4 ${textClass}`}>Ready to bring your next project to life?</p>
-              <button className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-all flex items-center justify-center gap-2 group">
-                <span>Start a Project</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+            {/* Core Values - Moved to left column */}
+            <div className={cardClass}>
+              <h3 className={`text-2xl font-semibold mb-6 ${headingClass}`}>What Drives Me</h3>
+              <div className="space-y-4">
+                {values.map((value, i) => (
+                  <div key={i} className={`p-4 rounded-xl border transition-all ${theme === 'dark' ? 'bg-slate-800/30 border-slate-700 hover:bg-slate-800/50' : 'bg-white border-slate-200 hover:border-slate-300'}`}>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center text-white">{value.icon}</div>
+                      <div>
+                        <h4 className={`font-semibold mb-1 ${headingClass}`}>{value.title}</h4>
+                        <p className={`text-sm ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>{value.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -157,24 +165,20 @@ const About = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Core Values */}
-            <div className={cardClass}>
-              <h3 className={`text-2xl font-semibold mb-6 ${headingClass}`}>What Drives Me</h3>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {values.map((value, i) => (
-                  <div key={i} className={`p-4 rounded-xl border transition-all ${theme === 'dark' ? 'bg-slate-800/30 border-slate-700 hover:bg-slate-800/50' : 'bg-white border-slate-200 hover:border-slate-300'}`}>
-                    <div className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center text-white">{value.icon}</div>
-                      <div>
-                        <h4 className={`font-semibold mb-1 ${headingClass}`}>{value.title}</h4>
-                        <p className={`text-sm ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>{value.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* CTA Card - Centered at bottom */}
+        <div className="max-w-2xl mx-auto">
+          <div className={`rounded-2xl p-8 border text-center ${theme === 'dark' ? 'bg-purple-900/20 border-purple-800/50' : 'bg-purple-50 border-purple-200'}`}>
+            <h3 className={`text-2xl font-semibold mb-3 ${headingClass}`}>Let&apos;s Work Together</h3>
+            <p className={`mb-6 ${textClass}`}>
+              Ready to bring your next project to life? I&apos;m always excited to collaborate on new ideas and create something amazing together.
+            </p>
+            <button className="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-all hover:scale-105 inline-flex items-center gap-2 group shadow-lg shadow-purple-500/25">
+              <span>Start a Project</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
         </div>
       </div>
