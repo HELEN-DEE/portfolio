@@ -10,7 +10,7 @@ const Hero = () => {
     return (
         <section 
             id="home" 
-            className={`min-h-screen flex items-center relative overflow-hidden pt-20  transition-colors duration-300 ${
+            className={`min-h-screen flex items-center relative overflow-hidden pt-16  transition-colors duration-300 ${
                 theme === 'dark' 
                     ? 'bg-slate-950 text-slate-100' 
                     : 'bg-white text-slate-900'
