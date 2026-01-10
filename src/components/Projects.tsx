@@ -7,7 +7,7 @@ import { useTheme } from "@/app/context/ThemeContext";
 
 import project1 from "../../public/assets/VoltWatchGrid-website.png";
 import project2 from "../../public/assets/bagstore-project.png";
-import project3 from "../../public/assets/helen-portfolio.png";
+import project3 from "../../public/assets/mod-portfolio.png";
 import project4 from "../../public/assets/crowdmint-header.png";
 import project5 from "../../public/assets/Finesse-republic-website.png";
 
@@ -65,7 +65,7 @@ const Projects = () => {
             featured: false,
             liveUrl: "https://helen-dee.pxxl.click/",
             githubUrl: "https://github.com/HELEN-DEE/portfolio.git",
-            status: "In progress",
+            status: "Completed",
         },
         {
             id: 4,

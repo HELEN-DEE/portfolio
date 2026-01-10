@@ -64,7 +64,7 @@ const About = () => {
   ];
 
   const stats = [
-    { value: 3, label: 'Years Experience', suffix: '+' },
+    { value: 4, label: 'Years Experience', suffix: '+' },
     { value: 25, label: 'Projects Completed', suffix: '+' },
     { value: 100, label: 'Client Satisfaction', suffix: '%' }
   ];
