@@ -8,6 +8,12 @@ interface NavLink {
   path: string;
 }
 
+interface CalendlyWindow extends Window {
+  Calendly?: {
+    initPopupWidget: (options: { url: string }) => void;
+  };
+}
+
 const navLinks: NavLink[] = [
   { label: "Home", path: "#home" },
   { label: "About", path: "#about" },
@@ -50,6 +56,18 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Load Calendly widget script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, 
     path: string
@@ -72,6 +90,16 @@ const Navbar = () => {
         }
       }
     }
+  };
+
+  const openCalendly = () => {
+    // Replace with your actual Calendly link
+    if (typeof window !== 'undefined' && (window as CalendlyWindow).Calendly) {
+      (window as CalendlyWindow).Calendly?.initPopupWidget({
+        url: 'https://calendly.com/helendeee12/30min'
+      });
+    }
+    setIsOpen(false); // Close mobile menu if open
   };
 
   return (
@@ -149,9 +177,9 @@ const Navbar = () => {
               )}
             </button>
 
-            {/* CTA Button */}
+            {/* Calendly CTA Button */}
             <button 
-              onClick={(e) => handleSmoothScroll(e, "#contact")}
+              onClick={openCalendly}
               className="px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-purple-500/25"
             >
               Let&apos;s Talk
@@ -230,15 +258,18 @@ const Navbar = () => {
               theme === 'dark' ? 'border-slate-800' : 'border-slate-200'
             }`}>
               <button 
-                onClick={(e) => handleSmoothScroll(e, "#contact")}
+                onClick={openCalendly}
                 className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors shadow-lg shadow-purple-500/25"
               >
-                Let&apos;s Talk
+                Schedule a Call
               </button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Calendly badge widget (optional - shows at bottom right) */}
+      <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
     </nav>
   );
 };
