@@ -213,10 +213,25 @@ const About = () => {
             >
               <h3 className={`text-2xl font-semibold mb-6 ${headingClass}`}>My Journey</h3>
               <div className={`space-y-4 leading-relaxed ${textClass}`}>
-                <p>I&apos;m a passionate frontend developer who entered the tech space driven by an insatiable curiosity and love for crafting digital experiences. What started as fascination with how websites work has evolved into a deep passion for building solutions that make a difference.</p>
-                <p>My approach to development goes beyond just writing code—I believe in creating experiences that are not only visually stunning but also performant, accessible, and user-centered. Every project is an opportunity to push boundaries and solve real-world problems through clean, maintainable code.</p>
-                <p>When I&apos;m not immersed in code, you&apos;ll find me creating video content, writing technical pieces that help fellow developers, or being one of X&apos;s biggest motivators—spreading positivity and knowledge in the developer community.</p>
+                <p>
+                  I&apos;m a developer who got into tech out of pure curiosity, I wanted to understand how
+                  websites actually worked and how ideas turned into real products. Over time, that curiosity
+                  turned into a passion for building things that people genuinely enjoy using.
+                </p>
+
+                <p>
+                  I build modern Web2, Web3, and CMS-driven products with a strong focus on usability, performance,
+                  and clean structure. For me, development isn&apos;t just about shipping features — it&apos;s about solving
+                  problems thoughtfully and creating interfaces that feel intuitive from the first interaction.
+                </p>
+
+                <p>
+                  Outside of building products, I create tech content, share what I&apos;m learning, and actively
+                  encourage others navigating their own tech journeys. I care about community, growth, and making
+                  the space feel a little less overwhelming for the next person.
+                </p>
               </div>
+
             </motion.div>
 
             {/* Skills */}

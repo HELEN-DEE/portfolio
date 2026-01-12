@@ -78,7 +78,7 @@ const Hero = () => {
                                 theme === 'dark' ? 'text-slate-300' : 'text-slate-700'
                             }`}>
                                 I&apos;m Helen, a web developer who turns complex problems into clean, intuitive digital experiences.
-                                I build modern Web2, Web3, and CMS-driven products that users actually enjoy using.
+                                {/* I build modern Web2, Web3, and CMS-driven products that users actually enjoy using. */}
                             </p>
                         </div>
 
