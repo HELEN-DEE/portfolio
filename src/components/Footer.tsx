@@ -1,7 +1,8 @@
 "use client";
 import React from 'react';
 import { Mail, ArrowUp } from 'lucide-react';
-import { FaTwitter, FaLinkedinIn, FaTiktok, FaInstagram, FaGithub, FaHeart } from 'react-icons/fa';
+import { FaLinkedinIn, FaTiktok, FaInstagram, FaGithub, FaHeart } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
 import { useTheme } from '@/app/context/ThemeContext';
 
 const Footer = () => {
@@ -11,33 +12,28 @@ const Footer = () => {
   const socialLinks = [
     {
       name: 'Twitter',
-      icon: <FaTwitter className="w-5 h-5" />,
+      icon: <FaXTwitter className="w-5 h-5" />,
       url: 'https://x.com/_devHelen',
-      color: 'hover:text-[#1DA1F2]'
     },
     {
       name: 'LinkedIn',
       icon: <FaLinkedinIn className="w-5 h-5" />,
       url: 'https://www.linkedin.com/in/helen-dee-dev/',
-      color: 'hover:text-[#0A66C2]'
     },
     {
       name: 'TikTok',
       icon: <FaTiktok className="w-5 h-5" />,
       url: 'https://www.tiktok.com/@helendeecodes',
-      color: 'hover:text-[#000000] dark:hover:text-[#EE1D52]'
     },
     {
       name: 'Instagram',
       icon: <FaInstagram className="w-5 h-5" />,
       url: 'https://www.instagram.com/helen_dee__',
-      color: 'hover:text-[#E4405F]'
     },
     {
       name: 'GitHub',
       icon: <FaGithub className="w-5 h-5" />,
       url: 'https://github.com/HELEN-DEE',
-      color: 'hover:text-[#333] dark:hover:text-white'
     }
   ];
 
@@ -46,7 +42,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className={`relative transition-colors ${
+    <footer className={`relative transition-colors  ${
       theme === 'dark' ? 'bg-slate-950 text-slate-300' : 'bg-white text-slate-700'
     }`}>
       {/* Top border */}
@@ -99,11 +95,11 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.name}
-                    className={`p-3 rounded-lg border transition-all ${
+                    className={`p-3 rounded-lg border transition-all hover:text-purple-700 ${
                       theme === 'dark'
                         ? 'border-slate-800 bg-slate-900/50 text-slate-400 hover:border-slate-700'
                         : 'border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300'
-                    } ${social.color}`}
+                    } `}
                   >
                     {social.icon}
                   </a>

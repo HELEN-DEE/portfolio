@@ -83,7 +83,7 @@ const ContactForm = () => {
   return (
     <section 
       id="contact" 
-      className={`min-h-screen  transition-colors ${
+      className={`min-h-screen  transition-colors py-20 ${
         theme === 'dark' ? 'bg-slate-950' : 'bg-white'
       }`}
     >
