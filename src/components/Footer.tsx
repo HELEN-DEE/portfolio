@@ -21,6 +21,11 @@ const Footer = () => {
       url: 'https://www.linkedin.com/in/helen-dee-dev/',
     },
     {
+      name: 'GitHub',
+      icon: <FaGithub className="w-5 h-5" />,
+      url: 'https://github.com/HELEN-DEE',
+    },
+    {
       name: 'TikTok',
       icon: <FaTiktok className="w-5 h-5" />,
       url: 'https://www.tiktok.com/@helendeecodes',
@@ -30,11 +35,6 @@ const Footer = () => {
       icon: <FaInstagram className="w-5 h-5" />,
       url: 'https://www.instagram.com/helen_dee__',
     },
-    {
-      name: 'GitHub',
-      icon: <FaGithub className="w-5 h-5" />,
-      url: 'https://github.com/HELEN-DEE',
-    }
   ];
 
   const scrollToTop = () => {
@@ -110,7 +110,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className={`py-6 border-t ${theme === 'dark' ? 'border-slate-800' : 'border-slate-200'}`}>
+        <div className={`py-4 border-t ${theme === 'dark' ? 'border-slate-800' : 'border-slate-200'}`}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             
             {/* Copyright */}
@@ -120,7 +120,7 @@ const Footer = () => {
               </p>
               <span className={`text-slate-500`}>•</span>
               <p className={`text-sm flex items-center gap-1.5 ${theme === 'dark' ? 'text-slate-500' : 'text-slate-500'}`}>
-                Made with <FaHeart className="w-3.5 h-3.5 text-purple-600" /> and Next.js
+                Made with <FaHeart className="w-3.5 h-3.5 text-purple-600" /> 
               </p>
             </div>
 

@@ -7,6 +7,17 @@ import { useTheme } from '@/app/context/ThemeContext';
 const Hero = () => {
     const { theme } = useTheme();
 
+    // Smooth scroll function
+    const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
         <section 
             id="home" 
@@ -78,7 +89,6 @@ const Hero = () => {
                                 theme === 'dark' ? 'text-slate-300' : 'text-slate-700'
                             }`}>
                                 I&apos;m Helen, a web developer who turns complex problems into clean, intuitive digital experiences.
-                                {/* I build modern Web2, Web3, and CMS-driven products that users actually enjoy using. */}
                             </p>
                         </div>
 
@@ -109,7 +119,10 @@ const Hero = () => {
 
                         {/* CTA Buttons */}
                         <div className="flex flex-wrap gap-4 ">
-                            <button className="group relative px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2 shadow-lg shadow-purple-500/25 hover:shadow-xl ">
+                            <button 
+                                onClick={() => scrollToSection('projects')}
+                                className="group relative px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2 shadow-lg shadow-purple-500/25 hover:shadow-xl cursor-pointer"
+                            >
                                 <span>View My Work</span>
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>

@@ -1,154 +1,89 @@
 // app/ClientLayout.tsx
 "use client";
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { useTheme } from './context/ThemeContext';
+
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { useTheme } from "./context/ThemeContext";
 
 interface ClientLayoutProps {
   children: React.ReactNode;
 }
 
 const ClientLayout = ({ children }: ClientLayoutProps) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
-  const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
     setMounted(true);
+    const timeout = setTimeout(() => setShowLoader(false), 1800);
+    return () => clearTimeout(timeout);
   }, []);
 
-  useEffect(() => {
-    if (!mounted) return;
-
-    // Simulate loading progress
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          // Hide loading screen after progress completes
-          setTimeout(() => setIsLoading(false), 500);
-          return 100;
-        }
-        return prev + 2;
-      });
-    }, 30);
-
-    return () => clearInterval(interval);
-  }, [mounted]);
-
-  // Don't render anything until mounted to avoid hydration mismatch
-  if (!mounted) {
-    return <>{children}</>;
-  }
+  if (!mounted) return null;
 
   return (
     <>
-      {/* Loading Screen */}
       <AnimatePresence>
-        {isLoading && (
+        {showLoader && (
           <motion.div
             className={`fixed inset-0 z-[9999] flex items-center justify-center ${
-              theme === 'dark' ? 'bg-slate-950' : 'bg-white'
+              theme === "dark" ? "bg-slate-950" : "bg-white"
             }`}
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="relative flex flex-col items-center">
+            <div className="flex flex-col items-center gap-10 w-full max-w-md px-6">
               
-              {/* Animated Logo/Name */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="mb-12"
+              {/* Name */}
+              <motion.h1
+                className={`text-4xl md:text-6xl font-semibold tracking-tight ${
+                  theme === "dark" ? "text-white" : "text-slate-900"
+                }`}
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  visible: {
+                    transition: { staggerChildren: 0.06 },
+                  },
+                }}
               >
-                <motion.h1
-                  className={`text-5xl md:text-7xl font-bold ${
-                    theme === 'dark' ? 'text-white' : 'text-slate-900'
-                  }`}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                >
-                  Helen Dee
-                  <motion.span 
-                    className="text-purple-600"
-                    animate={{ 
-                      opacity: [1, 0.5, 1],
+                {"Helen Dee".split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 },
                     }}
-                    transition={{ 
-                      duration: 1.5, 
-                      repeat: Infinity,
-                      ease: "easeInOut" 
-                    }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                   >
-                    .
+                    {char}
                   </motion.span>
-                </motion.h1>
-              </motion.div>
-
-              {/* Animated Circles */}
-              <div className="relative w-32 h-32 mb-8">
-                {[0, 1, 2].map((index) => (
-                  <motion.div
-                    key={index}
-                    className="absolute inset-0 border-4 border-purple-600 rounded-full"
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{
-                      scale: [0, 1.2, 1.4],
-                      opacity: [0.8, 0.4, 0],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: index * 0.4,
-                      ease: "easeOut",
-                    }}
-                  />
                 ))}
-                
-                {/* Center Logo */}
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                >
-                  <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center">
-                    <motion.div
-                      className="w-8 h-8 bg-white rounded-full"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    />
-                  </div>
-                </motion.div>
-              </div>
+                <span className="text-purple-600">.</span>
+              </motion.h1>
 
-              {/* Progress Bar */}
-              <div className="w-64 md:w-80">
-                <div className={`h-1 rounded-full overflow-hidden mb-3 ${
-                  theme === 'dark' ? 'bg-slate-800' : 'bg-slate-200'
-                }`}>
-                  <motion.div
-                    className="h-full bg-gradient-to-r from-purple-600 to-purple-400"
-                    initial={{ width: '0%' }}
-                    animate={{ width: `${progress}%` }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </div>
-                
-                {/* Progress Text */}
-                <motion.p
-                  className={`text-center text-sm font-medium ${
-                    theme === 'dark' ? 'text-slate-400' : 'text-slate-600'
-                  }`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                >
-                  Loading... {progress}%
-                </motion.p>
+              {/* Role */}
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className={`text-sm tracking-wide uppercase ${
+                  theme === "dark" ? "text-slate-400" : "text-slate-600"
+                }`}
+              >
+                Web Developer
+              </motion.p>
+
+              {/* Progress Line */}
+              <div className="w-full h-[3px] bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                <motion.div
+                  className="h-full bg-purple-600"
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 2.0, ease: "easeInOut" }}
+                />
               </div>
             </div>
           </motion.div>
@@ -156,13 +91,13 @@ const ClientLayout = ({ children }: ClientLayoutProps) => {
       </AnimatePresence>
 
       {/* Main Content */}
-      <motion.div
+      <motion.main
         initial={{ opacity: 0 }}
-        animate={{ opacity: isLoading ? 0 : 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        animate={{ opacity: showLoader ? 0 : 1 }}
+        transition={{ duration: 1.0, ease: "easeOut" }}
       >
         {children}
-      </motion.div>
+      </motion.main>
     </>
   );
 };

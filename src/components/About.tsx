@@ -43,6 +43,7 @@ const AnimatedCounter = ({ end, suffix = '' }: { end: number; suffix?: string })
 const About = () => {
   const { theme } = useTheme();
 
+
   const skills = [
     { name: 'HTML', category: 'Markup' },
     { name: 'CSS', category: 'Styling' },
@@ -68,6 +69,16 @@ const About = () => {
     { value: 25, label: 'Projects Completed', suffix: '+' },
     { value: 100, label: 'Client Satisfaction', suffix: '%' }
   ];
+
+  const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    };
 
   const cardClass = `rounded-2xl p-8 border transition-colors ${theme === 'dark' ? 'bg-slate-900/50 border-slate-800' : 'bg-slate-50 border-slate-200'}`;
   const textClass = theme === 'dark' ? 'text-slate-300' : 'text-slate-700';
@@ -99,8 +110,10 @@ const About = () => {
     }
   };
 
+
+
   return (
-    <section id="about" className={`min-h-screen py-20 lg:py-28 transition-colors ${theme === 'dark' ? 'bg-slate-950 text-slate-100' : 'bg-white text-slate-900'}`}>
+    <section id="about" className={`min-h-screen py-6 lg:py-8 transition-colors ${theme === 'dark' ? 'bg-slate-950 text-slate-100' : 'bg-white text-slate-900'}`}>
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
         
         {/* Header */}
@@ -279,7 +292,8 @@ const About = () => {
             <p className={`mb-6 ${textClass}`}>
               Ready to bring your next project to life? I&apos;m always excited to collaborate on new ideas and create something amazing together.
             </p>
-            <motion.button 
+            <motion.button
+              onClick={() => scrollToSection('contact')} 
               className="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-all inline-flex items-center gap-2 group shadow-lg shadow-purple-500/25"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

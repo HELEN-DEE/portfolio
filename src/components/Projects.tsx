@@ -32,6 +32,16 @@ const Projects = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const { theme } = useTheme();
 
+    const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     const projects: Project[] = [
         {
         id: 1,
@@ -115,7 +125,7 @@ const Projects = () => {
     return (
         <section
         id="projects"
-        className={`min-h-screen py-20 lg:py-28 transition-colors ${
+        className={`min-h-screen py-6 lg:py-8 transition-colors ${
             theme === "dark" ? "bg-slate-950 text-slate-100" : "bg-white text-slate-900"
         }`}
         >
@@ -354,7 +364,8 @@ const Projects = () => {
                 <p className={`mb-6 ${textClass}`}>
                 Let&apos;s collaborate and bring your ideas to life with clean code and beautiful design.
                 </p>
-                <motion.button 
+                <motion.button
+                onClick={() => scrollToSection('contact')} 
                 className="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-all inline-flex items-center gap-2 group shadow-lg shadow-purple-500/25"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
