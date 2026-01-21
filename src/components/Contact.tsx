@@ -315,6 +315,33 @@ const ContactForm = () => {
             </a>
           </p>
         </motion.div> */}
+
+        <motion.div 
+                    className="text-center mt-20 max-w-2xl mx-auto"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    >
+                    <div className={`rounded-2xl p-8 border ${
+                        theme === "dark"
+                        ? "bg-purple-900/20 border-purple-800/50"
+                        : "bg-purple-50 border-purple-200"
+                    }`}>
+                        <h3 className={`text-2xl font-bold mb-3 ${headingClass}`}>
+                        Would you prefer a call?
+                        </h3>
+                        <motion.button
+                        onClick={() => scrollToSection('contact')} 
+                        className="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-all inline-flex items-center gap-2 group shadow-lg shadow-purple-500/25"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        >
+                        <span>Book a call</span>
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </motion.button>
+                    </div>
+                    </motion.div>
       </div>
     </section>
   );
