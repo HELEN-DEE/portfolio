@@ -80,6 +80,13 @@ const ContactForm = () => {
       : 'bg-white border-slate-200 text-slate-900 placeholder-slate-400 focus:border-purple-600'
   } border-2 focus:outline-none focus:ring-2 focus:ring-purple-600/20`;
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section 
       id="contact" 
