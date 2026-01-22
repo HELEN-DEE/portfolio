@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, User, MessageCircle, ArrowRight, CheckCircle2, Send, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTheme } from '@/app/context/ThemeContext';
@@ -9,6 +9,15 @@ interface FormData {
   name: string;
   email: string;
   message: string;
+}
+
+// Declare Calendly types for TypeScript
+declare global {
+  interface Window {
+    Calendly: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
 }
 
 const ContactForm = () => {
@@ -23,12 +32,35 @@ const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
 
+  // Load Calendly widget script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Add Calendly CSS
+    const link = document.createElement('link');
+    link.href = 'https://assets.calendly.com/assets/external/widget.css';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+
+    return () => {
+      if (script.parentNode) {
+        document.body.removeChild(script);
+      }
+      if (link.parentNode) {
+        document.head.removeChild(link);
+      }
+    };
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
-    setError(''); // Clear error on input change
+    setError(''); 
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -44,7 +76,7 @@ const ContactForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '1d29aea0-f354-4ae7-84ea-9ed58decff41', // Get free key from web3forms.com
+          access_key: '1d29aea0-f354-4ae7-84ea-9ed58decff41',
           name: formData.name,
           email: formData.email,
           message: formData.message,
@@ -58,7 +90,6 @@ const ContactForm = () => {
         setIsSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
         
-        // Reset success message after 5 seconds
         setTimeout(() => {
           setIsSubmitted(false);
         }, 5000);
@@ -72,6 +103,15 @@ const ContactForm = () => {
     }
   };
 
+  // Function to open Calendly popup
+  const openCalendly = () => {
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ 
+        url: 'https://calendly.com/helendeee12/30min' 
+      });
+    }
+  };
+
   const textClass = theme === 'dark' ? 'text-slate-300' : 'text-slate-700';
   const headingClass = theme === 'dark' ? 'text-white' : 'text-slate-900';
   const inputClass = `w-full px-4 py-3.5 rounded-lg transition-all duration-200 ${
@@ -80,17 +120,10 @@ const ContactForm = () => {
       : 'bg-white border-slate-200 text-slate-900 placeholder-slate-400 focus:border-purple-600'
   } border-2 focus:outline-none focus:ring-2 focus:ring-purple-600/20`;
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section 
       id="contact" 
-      className={`min-h-screen  transition-colors py-20 ${
+      className={`min-h-screen transition-colors py-20 ${
         theme === 'dark' ? 'bg-slate-950' : 'bg-white'
       }`}
     >
@@ -138,7 +171,7 @@ const ContactForm = () => {
               </div>
               <h3 className={`text-lg font-semibold mb-2 ${headingClass}`}>Email Me</h3>
               <a 
-                href="mailto:your-email@example.com" 
+                href="mailto:helendeee12@gmail.com" 
                 className="text-purple-600 hover:text-purple-700 transition-colors break-all"
               >
                 helendeee12@gmail.com
@@ -303,52 +336,36 @@ const ContactForm = () => {
           </motion.div>
         </div>
 
-        {/* Additional Info */}
-        {/* <motion.div 
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
+        {/* Calendly Booking Section */}
+        <motion.div 
+          className="text-center mt-20 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6 }}
         >
-          <p className={`text-sm ${theme === 'dark' ? 'text-slate-500' : 'text-slate-500'}`}>
-            Prefer social media? Connect with me on{' '}
-            <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 font-medium">
-              Twitter
-            </a>
-            {' '}or{' '}
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 font-medium">
-              LinkedIn
-            </a>
-          </p>
-        </motion.div> */}
-
-        <motion.div 
-                    className="text-center mt-20 max-w-2xl mx-auto"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    >
-                    <div className={`rounded-2xl p-8 border ${
-                        theme === "dark"
-                        ? "bg-purple-900/20 border-purple-800/50"
-                        : "bg-purple-50 border-purple-200"
-                    }`}>
-                        <h3 className={`text-2xl font-bold mb-3 ${headingClass}`}>
-                        Would you prefer a call?
-                        </h3>
-                        <motion.button
-                        onClick={() => scrollToSection('contact')} 
-                        className="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-all inline-flex items-center gap-2 group shadow-lg shadow-purple-500/25"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        >
-                        <span>Book a call</span>
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </motion.button>
-                    </div>
-                    </motion.div>
+          <div className={`rounded-2xl p-8 border ${
+            theme === "dark"
+              ? "bg-purple-900/20 border-purple-800/50"
+              : "bg-purple-50 border-purple-200"
+          }`}>
+            <h3 className={`text-2xl font-bold mb-3 ${headingClass}`}>
+              Would you prefer a call?
+            </h3>
+            <p className={`mb-6 ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
+              Schedule a time that works best for you
+            </p>
+            <motion.button
+              onClick={openCalendly} 
+              className="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-all inline-flex items-center gap-2 group shadow-lg shadow-purple-500/25"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span>Schedule a Call</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

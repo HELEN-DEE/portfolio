@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState} from "react";
 import { Github, Code2, Layers, ShoppingBag, Blocks, ArrowRight, Filter, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import Image, { type StaticImageData } from "next/image";
@@ -15,16 +15,16 @@ import project5 from "../../public/assets/Finesse-republic-website.png";
 type ProjectCategory = "all" | "web2" | "web3" | "cms";
 
 interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string | StaticImageData;
-  technologies: string[];
-  category: ProjectCategory;
-  featured: boolean;
-  liveUrl: string;
-  githubUrl: string;
-  status: "Completed" | "In progress";
+    id: number;
+    title: string;
+    description: string;
+    image: string | StaticImageData;
+    technologies: string[];
+    category: ProjectCategory;
+    featured: boolean;
+    liveUrl: string;
+    githubUrl: string;
+    status: "Completed" | "In progress";
 }
 
 const Projects = () => {
@@ -53,7 +53,7 @@ const Projects = () => {
         featured: false,
         liveUrl: "https://voltage-monitor-pro.vercel.app/",
         githubUrl: "https://github.com/HELEN-DEE/Voltage-monitor-pro.git",
-        status: "In progress",
+        status: "Completed",
         },
         {
         id: 2,
@@ -109,7 +109,7 @@ const Projects = () => {
         { id: "all" as ProjectCategory, label: "All Projects", icon: Layers },
         { id: "web2" as ProjectCategory, label: "Web Apps", icon: Code2 },
         { id: "web3" as ProjectCategory, label: "Blockchain", icon: Blocks },
-        { id: "cms" as ProjectCategory, label: "E-Commerce", icon: ShoppingBag },
+        { id: "cms" as ProjectCategory, label: "CMS", icon: ShoppingBag },
     ];
 
     const filteredProjects =
@@ -131,9 +131,9 @@ const Projects = () => {
         >
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
 
-            {/* Header */}
+            {/* Projects Header */}
             <motion.div
-            className="text-center mb-16"
+            className="text-center my-14 "
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
