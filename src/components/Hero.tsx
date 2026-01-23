@@ -127,7 +127,9 @@ const Hero = () => {
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
                             
-                            <button className={`px-8 py-4 rounded-lg font-semibold border-2 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm ${
+                            <button 
+                                onClick={() => scrollToSection('contact')}
+                                className={`px-8 py-4 rounded-lg font-semibold border-2 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm ${
                                 theme === 'dark'
                                     ? 'bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-700 hover:border-slate-600'
                                     : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-300 hover:border-slate-400'
