@@ -11,6 +11,7 @@ import project2 from "../../public/assets/bagstore-project.png";
 import project3 from "../../public/assets/mod-portfolio.png";
 import project4 from "../../public/assets/crowdmint-header.png";
 import project5 from "../../public/assets/Finesse-republic-website.png";
+import project6 from "../../public/assets/softping.png";
 
 type ProjectCategory = "all" | "web2" | "web3" | "cms";
 
@@ -75,23 +76,11 @@ const Projects = () => {
         technologies: ["React", "Next.js", "CSS3", "REST API"],
         category: "web2",
         featured: false,
-        liveUrl: "https://helen-dee.pxxl.click/",
+        liveUrl: "https://helendee.xyz",
         githubUrl: "https://github.com/HELEN-DEE/portfolio.git",
         status: "Completed",
         },
-        {
-        id: 4,
-        title: "Crowdfunding Dapp",
-        description: "Decentralized crowdfunding application with wallet integration.",
-        image: project4,
-        technologies: ["Next.js", "Solidity", "wagmi", "Hardhat"],
-        category: "web3",
-        featured: false,
-        liveUrl: "https://crowdmint-liart.vercel.app/",
-        githubUrl: "https://github.com/HELEN-DEE/crowdfunding-dapp.git",
-        status: "In progress",
-        },
-        {
+    {
         id: 5,
         title: "Fashion Store",
         description: "Custom Shopify theme with advanced product filtering and checkout.",
@@ -102,6 +91,30 @@ const Projects = () => {
         liveUrl: "https://www.finesserepublic.store",
         githubUrl: "#",
         status: "Completed",
+        },
+        {
+        id: 4,
+        title: "Softping",
+        description: "A digital card generator that allows you send love letters to your loved ones.",
+        image: project6,
+        technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+        category: "web2",
+        featured: true,
+        liveUrl: "https://softping.pxxl.click",
+        githubUrl: "#",
+        status: "Completed",
+        },
+        {
+        id: 6,
+        title: "Crowdfunding Dapp",
+        description: "Decentralized crowdfunding application with wallet integration.",
+        image: project4,
+        technologies: ["Next.js", "Solidity", "wagmi", "Hardhat"],
+        category: "web3",
+        featured: false,
+        liveUrl: "https://crowdmint-liart.vercel.app/",
+        githubUrl: "https://github.com/HELEN-DEE/crowdfunding-dapp.git",
+        status: "In progress",
         },
     ];
 
